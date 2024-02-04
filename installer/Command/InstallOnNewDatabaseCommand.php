@@ -152,7 +152,7 @@ class InstallOnNewDatabaseCommand extends InstallerCommand
         );
         $dbName = $this->getRequiredField('Database Name', function ($value) {
             $value = $this->validateStrLength($value, 64);
-            return $this->alphanumericValidator($value, 'Database name should not contain special characters');
+            return $this->alphanumericWithHyphenValidator($value, 'Database name should not contain special characters except hyphen');
         });
 
         $this->getIO()->writeln(

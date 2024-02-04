@@ -207,9 +207,6 @@ export default {
         dbName: [
           required,
           shouldNotExceedCharLength(64),
-          shouldNotContainSpecialChars(
-            'Database name should not contain special characters',
-          ),
         ],
         dbUser: [required],
         ohrmDbUser: [(value) => this.disableOHRMDBfield || required(value)],

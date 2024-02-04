@@ -86,6 +86,14 @@ trait InstallerCommandHelperTrait
         throw new InvalidArgumentException($message);
     }
 
+    private function alphanumericWithHyphenValidator(?string $value, string $message): ?string
+    {
+        if (preg_match('/^[a-zA-Z0-9_-]*$/', $value) === 1) {
+            return $value;
+        }
+        throw new InvalidArgumentException($message);
+    }
+
     /**
      * @param string|null $value
      * @param string $message
